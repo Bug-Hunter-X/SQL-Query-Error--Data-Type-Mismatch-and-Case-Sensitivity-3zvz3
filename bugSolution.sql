@@ -1,0 +1,4 @@
+```sql
+SELECT * FROM employees WHERE LOWER(department) = 'sales' AND CAST(salary AS UNSIGNED) > 100000;
+```
+This solution uses `LOWER()` to ensure case-insensitive comparison for the department and `CAST(salary AS UNSIGNED)` converts the salary column to an unsigned integer (assuming your salary is non-negative) to make the numeric comparison work correctly even if the salary is stored as a string.  Adjust the `CAST` if your salary column has a different data type (e.g., `CAST(salary AS FLOAT)`).  If your SQL dialect doesn't support `LOWER()`, use an equivalent function. Note that in some dialects, `LOWER()` might be `lower()`.
